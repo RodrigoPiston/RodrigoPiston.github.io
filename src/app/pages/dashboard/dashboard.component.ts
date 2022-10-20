@@ -9,6 +9,7 @@ import { ToastrService } from "ngx-toastr";
   templateUrl: "dashboard.component.html"
 })
 export class DashboardComponent implements OnInit {
+  
   private _httpHeaders : any;
   public textInput : string;
   public flightDataSet : FlightDataSet;
@@ -18,13 +19,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private _http : HttpClient,private _toastr: ToastrService){
     this._httpHeaders = new HttpHeaders()
-     .set('Content-Type', 'application/x-www-form-urlencoded')
      .set('Cache-Control', 'no-cache')
      .set('Accept', '*/*');
      this.rowCount = 20;
   } 
   ngOnInit() {
- 
   }
   clickEvent() {
     const params = new HttpParams({
@@ -33,7 +32,8 @@ export class DashboardComponent implements OnInit {
       }
     });
     this.loading = true;
-    this._http.post('https://api.pnrconverter.com/api/convert',params,{headers: this._httpHeaders})
+
+    this._http.post('https://request-redirect.herokuapp.com/post_pnr',{pnr:this.textInput},{headers: this._httpHeaders})
     .subscribe(response => {
       this.flightDataSet = Convert.toFlightDataSet(JSON.stringify(response));
         if(!this.flightDataSet || this.flightDataSet.flightData.flights.length == 0){
