@@ -3,27 +3,9 @@
     <div class=" col-lg-2 col-md-0"></div>
     <div class=" col-lg-6 col-md-12">
       <div class=" form-group text-center">
-        <h3> Ingrese en el siguiente cuadro el texto en formato PNR </h3>
+        <h3> PNR Converter</h3>
         <textarea [(ngModel)]="textInput" class=" form-control" cols="80" style="max-height:max-content"
-          (change)="changedText()" placeholder="RP/MVDUY2133/
-        1  G37727 N 15NOV 2 MVDGRU DK1  0505 0750  15NOV  E  0 7M8 M
-            010 AA 7755 /AM 8039
-            SEE RTSVC
-        2  G31436 N 15NOV 2 GRUGYN DK1  0935 1110  15NOV  E  0 7M8
-            010 AA 7669 /AF 2003 /AM 8036 /AR 7546 /AV 4655 /CM 3552 /EK
-            36
-            3
-            010 ET 4104 /KL 9288 /TK 9489 /TP 5845 /UX 2622
-            SEE RTSVC
-        3  G31441 Y 21NOV 1 GYNGRU DK1  1805 1945  21NOV  E  0 7M8
-            010 AA 7670 /AR 7547 /AV 4648 /CM 3594 /EK 3622 /ET 4135 /TK
-            94
-            8
-            010 TP 5988
-            SEE RTSVC
-        4  G37632 Y 21NOV 1 GRUMVD DK1  2230 0115  22NOV  E  0 738 M
-            010 AA 7754 /AF 2029 /EK 3733 /KL 9310
-            SEE RTSVC" rows="{{rowCount}}" value="">
+          (change)="changedText()" placeholder="Ingrese aquí el texto en formato PNR, formatos admitidos Galileo, Smartpoint, Amadeus y Sabre" rows="{{rowCount}}" value="">
         </textarea>
       </div>
     </div>
@@ -40,18 +22,20 @@
     <div class=" col-lg-2 col-md-0"></div>
     <div class=" col-lg-6 col-md-12">
       <div class=" card">
+        
         <div class=" card-header">
+          <div class=" row">
+            <div class=" col-lg-10 col-md-5"></div>
+            <div class=" col-lg-2 col-md-4">
+              <button class="btn btn-simple btn-success col-lg-11"
+                color="primary" (click)="exportAsExcel()"> <div class="finfo-icons icon-cloud-download-93"></div>   Excel</button>
+            </div>
+          </div>
           <h4 class=" card-title text-center">Itinerario</h4>
         </div>
         <div class=" card-body">
           <div class=" table-responsive" style="overflow:hidden">
-            <div class=" row">
-              <div class=" col-lg-10 col-md-5"></div>
-              <div class=" col-lg-2 col-md-4">
-                <button class="btn btn-simple btn-success col-lg-11"
-                  color="primary" (click)="exportAsExcel()"> <div class="finfo-icons icon-cloud-download-93"></div>   Excel</button>
-              </div>
-            </div>
+          
 
             <table class=" table tablesorter" id="table" #TABLE>
               <thead class=" text-primary">
