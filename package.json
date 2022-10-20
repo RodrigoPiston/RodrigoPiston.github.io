@@ -1,7 +1,7 @@
 {
   "name": "flight-info",
   "version": "1.2.0",
-  "description": "Flight Info Platform",
+  "description": "Flight Informatio Tools",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
