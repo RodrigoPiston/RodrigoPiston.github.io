@@ -53,7 +53,7 @@
                 <tr *ngFor="let flight of this.flightDataSet?.flightData.flights">
                   <td>{{flight.flt.name}}</td>
                   <td>{{flight.flt.flightNo}}</td>
-                  <td class=" text-center">{{flight.flt.departure.UTC | date:'LLMMM':'-03:00' | uppercase}}</td>
+                  <td class=" text-center">{{flight.flt.departure.UTC | date:'ddMMM':'-03:00' | uppercase}}</td>
                   <td *ngIf="flight.dep.cityname != ''">{{flight.dep.cityname}}</td>
                   <td *ngIf="flight.dep.cityname == ''">{{replaceString(flight.dep.timezone)}}</td>
                   <td class=" text-center">{{flight.flt.departure.hr24}}</td>
